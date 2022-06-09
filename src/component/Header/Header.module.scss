@@ -1,0 +1,75 @@
+$color_title: #181818;
+$color_text: #7b7b7b;
+$color_basket: #fff;
+
+@mixin flex($justify) {
+  display: flex;
+  justify-content: $justify;
+  align-items: center;
+}
+@mixin FontSize_FontWeight_Lineheight($FontSize, $FontWeight, $LineHeight) {
+  font-size: $FontSize;
+  font-style: normal;
+  font-weight: $FontWeight;
+  line-height: $LineHeight;
+}
+
+.header {
+  @include flex(space-between);
+  height: 140px;
+  border-bottom: 1px solid #f7f7f7;
+  .logo {
+    @include flex(space-around);
+    width: 350px;
+    .logo_img {
+      width: 38px;
+      height: 38px;
+    }
+    .logo_img:hover {
+      cursor: pointer;
+    }
+  }
+  .description {
+    display: flex;
+    flex-direction: column;
+    .description_title {
+      height: 30px;
+      .description_title_item {
+        @include FontSize_FontWeight_Lineheight(24px, 800, 29px);
+        letter-spacing: 0.01em;
+        text-transform: uppercase;
+        color: $color_title;
+      }
+    }
+    .description_text {
+      .description_text_item {
+        @include FontSize_FontWeight_Lineheight(16px, 400, 19px);
+        color: $color_text;
+      }
+    }
+  }
+  .basket {
+    @include flex(center);
+    border: 0;
+    width: 150px;
+    height: 50px;
+    background: #fe5f1e;
+    color: $color_basket;
+    border-radius: 30px;
+    .price {
+      border-right: 1px solid rgba(255, 255, 255, 0.25);
+      @include FontSize_FontWeight_Lineheight(16px, 700, 19px);
+      margin-right: 10px;
+      padding-right: 5px;
+      width: 50px;
+    }
+    .basket_logo {
+      width: 30px;
+      height: 30px;
+    }
+    .count {
+      @include FontSize_FontWeight_Lineheight(16px, 700, 19px);
+      padding-left: 3px;
+    }
+  }
+}

@@ -1,0 +1,243 @@
+$color_text: #b6b6b6;
+$color_border: #f4f4f4;
+$color_text2: #fe5f1e;
+
+%style_btn {
+  width: 210px;
+  height: 55px;
+  border-radius: 30px;
+  text-align: center;
+}
+%style_btn_active {
+  @extend %style_btn;
+  border: 0;
+  color: white;
+  background-color: $color_text2;
+}
+%style_btn_def {
+  @extend %style_btn;
+  color: $color_text;
+  border: 1px solid $color_text;
+  background-color: none;
+}
+@mixin flex($justify) {
+  display: flex;
+  justify-content: $justify;
+  align-items: center;
+}
+@mixin FontSize_FontWeight_Lineheight($FontSize, $FontWeight, $LineHeight) {
+  font-size: $FontSize;
+  font-style: normal;
+  font-weight: $FontWeight;
+  line-height: $LineHeight;
+}
+.Basket {
+  width: 60%;
+  margin: 0 auto;
+}
+.Basket_title {
+  margin-top: 5%;
+  @include flex(space-between);
+  border-bottom: 1px solid $color_border;
+  padding-bottom: 15px;
+  .Basket_title_text {
+    display: flex;
+    align-items: center;
+    .logo {
+      width: 35px;
+      height: 35px;
+    }
+    .title {
+      padding-left: 15px;
+      @include FontSize_FontWeight_Lineheight(32px, 700, 39px);
+      letter-spacing: 0.01em;
+    }
+  }
+  .containerClearBtn {
+    @include flex(space-between);
+    width: 200px;
+    .ClearLogo {
+      width: 25px;
+      height: 25px;
+    }
+    .def {
+      @include FontSize_FontWeight_Lineheight(16px, 400, 19px);
+      color: $color_text;
+      border: 0;
+      background: none;
+    }
+    .clearBtn {
+      @include FontSize_FontWeight_Lineheight(14px, 400, 19px);
+      color: white;
+      border: 0;
+      background: $color_text2;
+      width: 150px;
+      height: 40px;
+      border-radius: 30px;
+    }
+    .clearBtn:hover {
+      cursor: pointer;
+    }
+  }
+}
+.infoBasket {
+  margin-top: 2%;
+  @include flex(space-between);
+  .countPizza {
+    @include FontSize_FontWeight_Lineheight(22px, 400, 27px);
+    letter-spacing: 0.01em;
+    .span {
+      font-weight: bold;
+    }
+  }
+  .PricePizza {
+    @include FontSize_FontWeight_Lineheight(22px, 400, 27px);
+    letter-spacing: 0.01em;
+    .span2 {
+      font-weight: bold;
+      color: $color_text2;
+    }
+  }
+}
+.containerBtn {
+  margin-top: 4%;
+  margin-bottom: 3%;
+  @include flex(space-between);
+  .CloseBasket {
+    .btn {
+      @extend %style_btn_active;
+      @include FontSize_FontWeight_Lineheight(16px, 700, 19px);
+    }
+  }
+  .pay_btn {
+    .btn {
+      @extend %style_btn_active;
+      @include FontSize_FontWeight_Lineheight(16px, 700, 19px);
+    }
+    .def {
+      @extend %style_btn_def;
+      @include FontSize_FontWeight_Lineheight(16px, 700, 19px);
+    }
+  }
+  .btn:hover {
+    cursor: pointer;
+  }
+}
+.contentBasket {
+  .contentBasketItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 140px;
+    border-bottom: 1px solid $color_border;
+    .img {
+      height: 80px;
+      width: 45%;
+      display: flex;
+      margin-top: -2%;
+      img {
+        margin-top: 3%;
+        height: 80px;
+        width: 80px;
+      }
+      .description {
+        margin-left: 4%;
+        .description_name {
+          @include FontSize_FontWeight_Lineheight(22px, 700, 27px);
+          letter-spacing: 0.01em;
+          height: 0px;
+        }
+        .description_text {
+          @include FontSize_FontWeight_Lineheight(16px, 400, 22px);
+          color: #8d8d8d8d;
+          letter-spacing: 0.01em;
+        }
+        div {
+          display: flex;
+        }
+      }
+    }
+    .counter {
+      display: flex;
+      justify-content: space-around;
+      width: 100px;
+      .count {
+        @include FontSize_FontWeight_Lineheight(22px, 700, 27px);
+        letter-spacing: 0.01em;
+      }
+      .counterBtn {
+        width: 30px;
+        height: 30px;
+        background: none;
+        border: 2px solid $color_text2;
+        border-radius: 50%;
+        color: $color_text2;
+        font-size: 15px;
+      }
+      .counterBtn:hover {
+        cursor: pointer;
+      }
+    }
+    .priceContainer {
+      @include FontSize_FontWeight_Lineheight(22px, 700, 27px);
+      letter-spacing: 0.01em;
+    }
+    .btnDelItem {
+      width: 30px;
+      height: 30px;
+      background: none;
+      border: 2px solid #d7d7d7;
+      border-radius: 50%;
+      color: #d0d0d0;
+      padding-bottom: 0.5%;
+    }
+    .btnDelItem:hover {
+      cursor: pointer;
+    }
+  }
+}
+.BasketNull {
+  width: 600px;
+  height: 550px;
+  margin: auto;
+  @include flex(center);
+  text-align: center;
+  flex-direction: column;
+  .title {
+    margin-top: 150px;
+    .title_item {
+      @include FontSize_FontWeight_Lineheight(32px, 700, 39px);
+      letter-spacing: 0.01em;
+    }
+  }
+  .description {
+    .description_item {
+      color: #777777;
+      @include FontSize_FontWeight_Lineheight(18px, 400, 20px);
+      letter-spacing: 0.01em;
+    }
+  }
+  .containerLogo {
+    .containerLogo_img {
+      width: 300px;
+      height: 300px;
+    }
+  }
+  .btnContainer {
+    margin-top: 50px;
+    .btnBack {
+      width: 210px;
+      height: 45px;
+      background: #282828;
+      border: 0;
+      border-radius: 30px;
+      color: white;
+      text-align: center;
+      @include FontSize_FontWeight_Lineheight(16px, 700, 19px);
+      letter-spacing: 0.015em;
+    }
+    .btnBack:hover {
+      cursor: pointer;
+    }
+  }
+}
